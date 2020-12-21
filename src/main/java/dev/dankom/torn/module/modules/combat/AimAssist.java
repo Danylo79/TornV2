@@ -18,7 +18,7 @@ public class AimAssist extends Module {
     private EntityUtils entityUtils = new EntityUtils();
 
     public AimAssist() {
-        super("Aim Assist", Category.COMBAT, -1, new Color(119, 0, 255), true, true);
+        super("Aim Assist", "Aims at the nearest entity", Category.COMBAT, -1, new Color(119, 0, 255), true, true);
         addSetting(new Setting("Invisibles", this, false));
         addSetting(new Setting("Players", this, true));
         addSetting(new Setting("Animals", this, false));

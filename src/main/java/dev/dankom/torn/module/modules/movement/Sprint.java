@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Sprint extends Module {
     public Sprint() {
-        super("Sprint", Category.MOVEMENT, -1, new Color(0, 166, 255), true, true);
+        super("Sprint", "Automatically sprints for you", Category.MOVEMENT, -1, new Color(0, 166, 255), true, true);
     }
 
     @Override

@@ -8,7 +8,11 @@ import dev.dankom.torn.gui.clickgui.component.components.sub.*;
 import dev.dankom.torn.gui.clickgui.component.components.sub.Checkbox;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.module.base.Module;
+import dev.dankom.torn.theme.Theme;
+import dev.dankom.torn.util.GuiUtil;
+import dev.dankom.torn.util.StringUtil;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import org.lwjgl.opengl.GL11;
 
@@ -74,7 +78,7 @@ public class Button extends Component {
 		GL11.glScalef(0.5f,0.5f, 0.5f);
 		Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(this.mod.getName(), (parent.getX() + 2) * 2, (parent.getY() + offset + 2) * 2 + 4, this.mod.isToggled() ? ClickGui.getColor() : new Color(107, 110, 108).getRGB());
 		if(this.subcomponents.size() > 2)
-		Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(this.open ? "-" : "+", (parent.getX() + parent.getWidth() - 10) * 2, (parent.getY() + offset + 2) * 2 + 4, -1);
+		Minecraft.getMinecraft().fontRendererObj.drawStringWithShadow(this.open ? "-" : "+", (parent.getX() + parent.getWidth() - 10) * 2, (parent.getY() + offset + 2) * 2 + 4, ClickGui.getColor());
 		GL11.glPopMatrix();
 		if(this.open) {
 			if(!this.subcomponents.isEmpty()) {
@@ -83,6 +87,9 @@ public class Button extends Component {
 				}
 				Gui.drawRect(parent.getX() + 2, parent.getY() + this.offset + 12, parent.getX() + 3, parent.getY() + this.offset + ((this.subcomponents.size() + 1) * 12), ClickGui.getColor());
 			}
+		}
+		if (isHovered) {
+			renderTooltip(parent.getX() + offset, parent.getY() + offset);
 		}
 	}
 	
@@ -137,5 +144,11 @@ public class Button extends Component {
 			return true;
 		}
 		return false;
+	}
+
+	public void renderTooltip(int x, int y) {
+//		FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
+//		GuiUtil.drawHollowRect(x, y, fr.getStringWidth(mod.getDescription()) + 2, fr.FONT_HEIGHT + 2, ClickGui.getColor());
+//		fr.drawString(mod.getDescription(), x, y, ClickGui.getColor());
 	}
 }

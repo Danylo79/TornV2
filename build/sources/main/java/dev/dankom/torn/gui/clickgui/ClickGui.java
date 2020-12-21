@@ -16,7 +16,7 @@ public class ClickGui extends GuiScreen {
 	public static ArrayList<Frame> frames;
 
 	public static int getColor() {
-		return Theme.getInstance().getColor();
+		return Theme.getInstance().getColorInt();
 	}
 	
 	public ClickGui() {

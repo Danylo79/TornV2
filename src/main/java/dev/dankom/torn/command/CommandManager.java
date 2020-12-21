@@ -11,7 +11,7 @@ package dev.dankom.torn.command;
  */
 
 import dev.dankom.torn.command.commands.ToggleCommand;
-import dev.dankom.torn.util.ChatUtils;
+import dev.dankom.torn.util.ChatUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -40,7 +40,7 @@ public class CommandManager {
         Command command = commands.stream().filter(cmd -> cmd.match(cmdName)).findFirst().orElse(null);
 
         if (command == null) {
-            ChatUtils.send("§c'" + cmdName + "' doesn't exist");
+            ChatUtil.send("§c'" + cmdName + "' doesn't exist");
             return false;
         } else {
             String[] args = new String[split.length - 1];

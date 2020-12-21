@@ -3,7 +3,7 @@ package dev.dankom.torn.command.commands;
 import dev.dankom.torn.Torn;
 import dev.dankom.torn.command.Command;
 import dev.dankom.torn.module.base.Module;
-import dev.dankom.torn.util.ChatUtils;
+import dev.dankom.torn.util.ChatUtil;
 import net.minecraft.command.CommandException;
 
 import java.util.List;
@@ -44,7 +44,7 @@ public class ToggleCommand extends Command {
 
         mod.setToggled(state);
 
-        ChatUtils.success(mod.getName() + " was " + ChatUtils.PRIMARY_COLOR + (state ? "enabled" : "disabled"));
+        ChatUtil.success(mod.getName() + " was " + ChatUtil.PRIMARY_COLOR + (state ? "enabled" : "disabled"));
     }
 
     @Override

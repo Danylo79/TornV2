@@ -19,7 +19,7 @@ public class SetbackDetector extends Module {
     private ArrayList<Long> lastSetBacks = new ArrayList<Long>();
 
     public SetbackDetector() {
-        super("Setback Detector", Category.MOVEMENT, -1, new Color(74, 208, 204), true, true);
+        super("Setback Detector", "Tells you when you lag back", Category.MOVEMENT, -1, new Color(74, 208, 204), true, true);
     }
 
     @Override

@@ -25,6 +25,7 @@ import java.awt.*;
 public class Module {
     private final String name;
     private String enabledModName;
+    private String description;
     private final Category category;
     private int key;
     private final Color color;
@@ -37,9 +38,10 @@ public class Module {
     public SettingsManager settingsManager;
     public Invoker invoker;
 
-    public Module(String name, Category category, int key, Color color, boolean showInClickGui, boolean showInEnabledMods) {
+    public Module(String name, String description, Category category, int key, Color color, boolean showInClickGui, boolean showInEnabledMods) {
         this.name = name;
         this.enabledModName = name;
+        this.description = description;
         this.category = category;
         this.key = key;
         this.color = color;
@@ -149,6 +151,10 @@ public class Module {
 
     public Color getColor() {
         return color;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     @SubscribeEvent

@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class TextGUI extends Module {
     public TextGUI() {
-        super("TextGUI", Category.RENDER, -1, new Color(255, 0, 0), true, false);
+        super("TextGUI", "Shows your enabled modules", Category.RENDER, -1, new Color(255, 0, 0), true, false);
         addSetting(new Setting("Use Module Color", this, false));
     }
 

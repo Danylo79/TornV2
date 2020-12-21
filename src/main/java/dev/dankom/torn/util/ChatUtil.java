@@ -7,7 +7,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ChatUtils {
+public class ChatUtil {
     public static final String PRIMARY_COLOR = "§7";
     public static final String SECONDARY_COLOR = "§1";
     private static final String PREFIX = PRIMARY_COLOR + "[" + SECONDARY_COLOR + "Torn" + PRIMARY_COLOR + "] ";

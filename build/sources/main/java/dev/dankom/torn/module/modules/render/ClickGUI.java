@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class ClickGUI extends Module {
     public ClickGUI() {
-        super("ClickGUI", Category.RENDER, Keyboard.KEY_RSHIFT, new Color(249, 0, 255), false, false);
+        super("ClickGUI", "Opens the ClickGUI", Category.RENDER, Keyboard.KEY_RSHIFT, new Color(249, 0, 255), false, false);
         addSetting(new Setting("R", this, 100.0, 0.0, 100.0, true));
         addSetting(new Setting("G", this, 50.0, 0.0, 100.0, true));
         addSetting(new Setting("B", this, 50.0, 0.0, 100.0, true));

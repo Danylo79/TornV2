@@ -22,7 +22,7 @@ public class AutoClicker extends Module {
     private double max;
 
     public AutoClicker() {
-        super("AutoClicker", Category.COMBAT, -1, new Color(179, 32, 0), true, true);
+        super("AutoClicker", "Clicks for you", Category.COMBAT, -1, new Color(179, 32, 0), true, true);
         ArrayList<String> args = new ArrayList<>();
         args.add("Left");
         args.add("Right");

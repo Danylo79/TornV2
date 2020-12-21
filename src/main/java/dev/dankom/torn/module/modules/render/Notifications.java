@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class Notifications extends Module {
     public Notifications() {
-        super("Notification", Category.RENDER, -1, new Color(0, 0, 0), true, false);
+        super("Notification", "Toggles whether you see notifications", Category.RENDER, -1, new Color(0, 0, 0), true, false);
         addSetting(new Setting("Use ClickGUI Color", this, false));
         addSetting(new Setting("Show Override", this, false));
     }

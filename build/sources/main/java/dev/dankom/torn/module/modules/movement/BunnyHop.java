@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class BunnyHop extends Module {
     public BunnyHop() {
-        super("B-Hop", Category.MOVEMENT, -1, new Color(231, 201, 24), true, true);
+        super("B-Hop", "Jumps for you and slightly increases your speed", Category.MOVEMENT, -1, new Color(231, 201, 24), true, true);
     }
 
     public boolean isToJump() {

@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class AltManager extends Module {
     public AltManager() {
-        super("Alt Manager", Category.RENDER, -1, new Color(0, 255, 128), true, false);
+        super("Alt Manager", "Opens the AltManager", Category.RENDER, -1, new Color(0, 255, 128), true, false);
     }
 
     @Override

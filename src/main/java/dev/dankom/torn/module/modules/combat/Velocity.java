@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class Velocity extends Module {
     public Velocity() {
-        super("Velocity", Category.COMBAT, -1, new Color(255, 119, 0), true, true);
+        super("Velocity", "Changes the amount of knockback you take", Category.COMBAT, -1, new Color(255, 119, 0), true, true);
         addSetting(new Setting("Horizontal", this, 90, 1, 100, true));
         addSetting(new Setting("Vertical", this, 90, 1, 100, true));
     }

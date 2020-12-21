@@ -2,7 +2,7 @@
   {
     "modid": "torn",
     "name": "Torn Mod",
-    "description": "100% not a hacked client!",
+    "description": "A mod to fix or patch minecraft rendering bugs",
     "version": "${version}",
     "mcversion": "${mcversion}]",
     "url": "",
