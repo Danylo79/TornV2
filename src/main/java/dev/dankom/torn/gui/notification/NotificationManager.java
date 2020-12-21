@@ -10,6 +10,9 @@ package dev.dankom.torn.gui.notification;
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import dev.dankom.torn.Torn;
+import net.minecraft.client.Minecraft;
+
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class NotificationManager {
@@ -17,7 +20,7 @@ public class NotificationManager {
     private static Notification currentNotification = null;
 
     public static void show(Notification notification) {
-//        if (Minecraft.getMinecraft().currentScreen != null)
+        if (Torn.getSettingsManager().getSetting(Torn.getModuleManager().getModule("Notification"), "Show Override").getValBoolean() && Minecraft.getMinecraft().currentScreen != null) return;
         pendingNotifications.add(notification);
     }
 
@@ -44,5 +47,11 @@ public class NotificationManager {
         show(notification);
         update();
         render();
+    }
+
+    public static void renderAll() {
+        for (Notification n : pendingNotifications) {
+            n.render();
+        }
     }
 }

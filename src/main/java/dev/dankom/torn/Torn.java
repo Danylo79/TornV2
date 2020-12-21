@@ -4,6 +4,8 @@ import dev.dankom.torn.alt.AltManager;
 import dev.dankom.torn.command.CommandManager;
 import dev.dankom.torn.file.FileManager;
 import dev.dankom.torn.gui.clickgui.ClickGui;
+import dev.dankom.torn.gui.notification.NotificationManager;
+import dev.dankom.torn.module.ModuleManager;
 import dev.dankom.torn.settings.SettingsManager;
 import dev.dankom.torn.listeners.ClickListener;
 import dev.dankom.torn.util.wrapper.Wrapper;
@@ -12,12 +14,16 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLModDisabledEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 @Mod(modid = Torn.MODID, version = Torn.VERSION)
 public class Torn
 {
     public static final String MODID = "torn";
     public static final String VERSION = "1.0";
+
+    public static String CLIENT_NAME = "Torn", CLIENT_VERSION = "B1.0", CLIENT_AUTHOR = "Dankom";
 
     private final static Wrapper wrapper = new Wrapper();
     private final static SettingsManager settingsManager = new SettingsManager();

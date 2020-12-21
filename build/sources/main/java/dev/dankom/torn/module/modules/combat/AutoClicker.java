@@ -27,8 +27,8 @@ public class AutoClicker extends Module {
         args.add("Left");
         args.add("Right");
         addSetting(new Setting("Mouse Button", this, "Left", args));
-        addSetting(new Setting("Min CPS", this, 1, 1 , 10, true));
-        addSetting(new Setting("Max CPS", this, 1, 1 , 50, true));
+        addSetting(new Setting("Min CPS", this, 8, 8, 50, true));
+        addSetting(new Setting("Max CPS", this, 12, 12 , 50, true));
         addSetting(new Setting("Fake Jitter", this, false));
     }
 
@@ -39,19 +39,20 @@ public class AutoClicker extends Module {
     }
 
     @Override
-    public void onUpdate(UpdateEvent e) {
+    public void onRenderTick() {
         tick();
     }
 
     public void tick() {
         int key;
-        if (getSetting("Mouse Button").getValString().equalsIgnoreCase("Left")) {
+        String mouse_button = getSetting("Mouse Button").getValString();
+        if (mouse_button.equalsIgnoreCase("Left")) {
             key = mc.gameSettings.keyBindAttack.getKeyCode();
         } else {
             key = mc.gameSettings.keyBindPickBlock.getKeyCode();
         }
-        if (Mouse.isButtonDown(0)) {
-            if (System.currentTimeMillis() - lastClick > speed * 1000) {
+        if ((Mouse.isButtonDown(0) && mouse_button.equalsIgnoreCase("Left")) || (Mouse.isButtonDown(1) && mouse_button.equalsIgnoreCase("Right"))) {
+            if (System.currentTimeMillis() - lastClick > (speed * 1000)) {
                 lastClick = System.currentTimeMillis();
                 if (hold < lastClick) {
                     hold = lastClick;

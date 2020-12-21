@@ -5,6 +5,10 @@ import dev.dankom.torn.event.events.MotionUpdateEvent;
 import dev.dankom.torn.event.events.PacketEvent;
 import dev.dankom.torn.event.events.Render2DEvent;
 import dev.dankom.torn.event.events.UpdateEvent;
+import dev.dankom.torn.gui.notification.Notification;
+import dev.dankom.torn.gui.notification.NotificationManager;
+import dev.dankom.torn.gui.notification.NotificationType;
+import dev.dankom.torn.module.ModuleManager;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.settings.SettingsManager;
 import dev.dankom.torn.util.wrapper.Invoker;
@@ -51,9 +55,11 @@ public class Module {
     //Events
     public void onEnable() {
         MinecraftForge.EVENT_BUS.register(this);
+        NotificationManager.show(new Notification(NotificationType.INFO, "Module Manager", "Activated " + getName() + " module!", 100));
     }
     public void onDisable() {
         MinecraftForge.EVENT_BUS.unregister(this);
+        NotificationManager.show(new Notification(NotificationType.INFO, "Module Manager", "Deactivated " + getName() + " module!", 100));
     }
     public void onToggle() {}
     public void onTick() {}

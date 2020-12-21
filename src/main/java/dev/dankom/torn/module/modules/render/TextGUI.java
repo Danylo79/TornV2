@@ -10,14 +10,17 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 import java.awt.*;
 
-public class EnabledMods extends Module {
-    public EnabledMods() {
+public class TextGUI extends Module {
+    public TextGUI() {
         super("TextGUI", Category.RENDER, -1, new Color(255, 0, 0), true, false);
         addSetting(new Setting("Use Module Color", this, false));
     }
 
     @Override
     public void onRender(RenderGameOverlayEvent e) {
+        if (!isToggled()) {
+            return;
+        }
         if (mc.currentScreen == null && e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) {
             ScaledResolution sr = new ScaledResolution(mc);
             int y = 2;
