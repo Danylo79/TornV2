@@ -7,7 +7,6 @@ import dev.dankom.torn.event.events.Render2DEvent;
 import dev.dankom.torn.event.events.UpdateEvent;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.settings.SettingsManager;
-import dev.dankom.torn.module.ModuleManager;
 import dev.dankom.torn.util.wrapper.Invoker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -18,7 +17,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 import java.awt.*;
-import java.lang.reflect.Method;
 
 public class Module {
     private final String name;

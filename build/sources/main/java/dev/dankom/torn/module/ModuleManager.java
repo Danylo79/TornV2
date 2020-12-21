@@ -6,7 +6,6 @@ import dev.dankom.torn.module.modules.combat.AimAssist;
 import dev.dankom.torn.module.modules.combat.AutoClicker;
 import dev.dankom.torn.module.modules.combat.Velocity;
 import dev.dankom.torn.module.modules.movement.*;
-import dev.dankom.torn.module.modules.player.AntiBlind;
 import dev.dankom.torn.module.modules.render.ClickGUI;
 import dev.dankom.torn.module.modules.render.EnabledMods;
 import dev.dankom.torn.module.modules.render.Notifications;

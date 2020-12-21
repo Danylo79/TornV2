@@ -6,7 +6,6 @@ import dev.dankom.torn.module.modules.combat.AimAssist;
 import dev.dankom.torn.module.modules.combat.AutoClicker;
 import dev.dankom.torn.module.modules.combat.Velocity;
 import dev.dankom.torn.module.modules.movement.*;
-import dev.dankom.torn.module.modules.player.AntiBlind;
 import dev.dankom.torn.module.modules.render.ClickGUI;
 import dev.dankom.torn.module.modules.render.EnabledMods;
 import dev.dankom.torn.module.modules.render.Notifications;
@@ -27,7 +26,6 @@ public class ModuleManager {
         addModule(new SetbackDetector());
         addModule(new Notifications());
         addModule(new AutoClicker());
-        addModule(new AntiBlind());
     }
 
     public void addModule(Module module) {

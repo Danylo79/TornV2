@@ -6,7 +6,6 @@ import dev.dankom.torn.file.FileManager;
 import dev.dankom.torn.gui.clickgui.ClickGui;
 import dev.dankom.torn.settings.SettingsManager;
 import dev.dankom.torn.listeners.ClickListener;
-import dev.dankom.torn.module.ModuleManager;
 import dev.dankom.torn.util.wrapper.Wrapper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
