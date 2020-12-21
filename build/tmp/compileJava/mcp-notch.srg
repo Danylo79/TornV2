@@ -1,0 +1,6 @@
+FD: dev/dankom/torn/mixin/mixins/entity/MixinEntity/posX dev/dankom/torn/mixin/mixins/entity/MixinEntity/s
+FD: dev/dankom/torn/mixin/mixins/entity/MixinEntity/posY dev/dankom/torn/mixin/mixins/entity/MixinEntity/t
+FD: dev/dankom/torn/mixin/mixins/entity/MixinEntity/posZ dev/dankom/torn/mixin/mixins/entity/MixinEntity/u
+FD: dev/dankom/torn/mixin/mixins/entity/MixinEntity/rotationYaw dev/dankom/torn/mixin/mixins/entity/MixinEntity/y
+FD: dev/dankom/torn/mixin/mixins/entity/MixinEntity/rotationPitch dev/dankom/torn/mixin/mixins/entity/MixinEntity/z
+FD: dev/dankom/torn/mixin/mixins/entity/MixinEntity/onGround dev/dankom/torn/mixin/mixins/entity/MixinEntity/C

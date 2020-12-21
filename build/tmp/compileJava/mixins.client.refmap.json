@@ -1,0 +1,19 @@
+{
+  "mappings": {
+    "dev/dankom/torn/mixin/mixins/player/MixinEntityPlayerSP": {
+      "onUpdateWalkingPlayer": "Lnet/minecraft/client/entity/EntityPlayerSP;func_175161_p()V"
+    }
+  },
+  "data": {
+    "notch": {
+      "dev/dankom/torn/mixin/mixins/player/MixinEntityPlayerSP": {
+        "onUpdateWalkingPlayer": "Lbew;p()V"
+      }
+    },
+    "searge": {
+      "dev/dankom/torn/mixin/mixins/player/MixinEntityPlayerSP": {
+        "onUpdateWalkingPlayer": "Lnet/minecraft/client/entity/EntityPlayerSP;func_175161_p()V"
+      }
+    }
+  }
+}

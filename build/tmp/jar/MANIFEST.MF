@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+TweakOrder: 0
+MixinConfigs: mixins.client.json
+FMLCorePluginContainsFMLMod: dev.dankom.torn.mixin.MixinLoader
+tweakClass: org.spongepowered.asm.launch.MixinTweaker
+FMLCorePlugin: net.ccbluex.liquidbounce.injection.forge.TransformerLoa
+ der
+
