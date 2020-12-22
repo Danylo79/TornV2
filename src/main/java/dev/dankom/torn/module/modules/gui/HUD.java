@@ -1,4 +1,4 @@
-package dev.dankom.torn.module.modules.render;
+package dev.dankom.torn.module.modules.gui;
 
 import dev.dankom.torn.Torn;
 import dev.dankom.torn.gui.clickgui.ClickGui;
@@ -13,11 +13,9 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
-import java.time.Clock;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class HUD extends Module {
@@ -25,18 +23,15 @@ public class HUD extends Module {
     private List<Integer> fps = new ArrayList<>();
 
     public HUD() {
-        super("HUD", "Shows the Heads Up Display", Category.RENDER, -1, new Color(0, 255, 15), true, true);
+        super("HUD", "Shows the Heads Up Display", Category.GUI, -1, new Color(0, 255, 15), true, true);
         addSetting(new Setting("FPS", this, false));
         addSetting(new Setting("BPS", this, false));
         addSetting(new Setting("Time", this, false));
     }
 
-    private static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm");
-
     @Override
     public void onRender(RenderGameOverlayEvent e) {
-        if (!isToggled()) return;
+        if (!isToggled() || !e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) return;
 
         FontRenderer fontRenderer = mc.fontRendererObj;
         ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft());
@@ -58,10 +53,11 @@ public class HUD extends Module {
             fontRenderer.drawString(String.format("BPS: %.2f", currSpeed), (fps ? 45 : 4), res.getScaledHeight() - fontRenderer.FONT_HEIGHT - 2, ClickGui.getColor(), true);
         }
         if (time) {
-            LocalDateTime now = LocalDateTime.now(Clock.systemDefaultZone());
             Calendar cal = Calendar.getInstance();
-            String currTime = timeFormat.format(now);
-            fontRenderer.drawString(currTime, res.getScaledWidth() - fontRenderer.getStringWidth(currTime), res.getScaledHeight() - fontRenderer.FONT_HEIGHT - 3, ClickGui.getColor(), true);
+            cal.setTime(new Date());
+            String am_pm = (cal.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM");
+            String currTime = cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + " " + am_pm;
+            fontRenderer.drawString(currTime, res.getScaledWidth() - fontRenderer.getStringWidth(currTime) - 4, res.getScaledHeight() - fontRenderer.FONT_HEIGHT - 2, ClickGui.getColor(), true);
         }
     }
 }

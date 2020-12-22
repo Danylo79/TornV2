@@ -1,4 +1,4 @@
-package dev.dankom.torn.module.modules.render;
+package dev.dankom.torn.module.modules.gui;
 
 import dev.dankom.torn.gui.alt.GuiAltLogin;
 import dev.dankom.torn.module.base.Category;
@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class AltManager extends Module {
     public AltManager() {
-        super("Alt Manager", "Opens the AltManager", Category.RENDER, -1, new Color(0, 255, 128), true, false);
+        super("Alt Manager", "Opens the AltManager", Category.GUI, -1, new Color(0, 255, 128), true, false);
     }
 
     @Override

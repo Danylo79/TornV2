@@ -1,7 +1,7 @@
 package dev.dankom.torn.module.base;
 
 public enum Category {
-    COMBAT(false), RENDER(false), MISC(false), MOVEMENT(false), PLAYER(false), WORLD(false);
+    COMBAT(false), RENDER(false), MISC(false), MOVEMENT(false), PLAYER(false), WORLD(false), GUI(false);
 
     private boolean hide;
 

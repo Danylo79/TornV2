@@ -9,6 +9,7 @@ package dev.dankom.torn.gui.tabgui;
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import dev.dankom.torn.theme.Theme;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -25,9 +26,8 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class TabGui<T> {
     static final int OFFSET = 3;
-    static Color BACKGROUND = new Color(0, 0, 0, 175);
+    static Color BACKGROUND = new Color(0, 0, 0, .5F);
     static Color BORDER = new Color(0, 0, 0, 255);
-    static Color SELECTED = new Color(38, 164, 78, 200);
     static Color FOREGROUND = Color.white;
     private List<Tab<T>> tabs = new ArrayList<>();
     private int selectedTab = 0;
@@ -96,7 +96,7 @@ public class TabGui<T> {
 
         for (Tab<T> tab : tabs) {
             if (selectedTab == i) {
-                drawRect(GL_QUADS, 0, offset - 2, width, offset + font.FONT_HEIGHT + OFFSET - 2, SELECTED.getRGB());
+                drawRect(GL_QUADS, 0, offset - 2, width, offset + font.FONT_HEIGHT + OFFSET - 2, Theme.getInstance().getColorInt());
 
                 if (selectedSubTab != -1) {
                     tab.renderSubTabs(width, offset - 2, selectedSubTab);

@@ -5,11 +5,9 @@ import dev.dankom.torn.module.base.Module;
 import dev.dankom.torn.module.modules.combat.AimAssist;
 import dev.dankom.torn.module.modules.combat.AutoClicker;
 import dev.dankom.torn.module.modules.combat.Velocity;
+import dev.dankom.torn.module.modules.gui.*;
 import dev.dankom.torn.module.modules.movement.*;
-import dev.dankom.torn.module.modules.render.ClickGUI;
-import dev.dankom.torn.module.modules.render.HUD;
-import dev.dankom.torn.module.modules.render.TextGUI;
-import dev.dankom.torn.module.modules.render.Notifications;
+import dev.dankom.torn.module.modules.render.Fullbright;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +26,10 @@ public class ModuleManager {
         addModule(new Notifications());
         addModule(new AutoClicker());
         addModule(new HUD());
+        addModule(new Strafe());
+        addModule(new Step());
+        addModule(new Fullbright());
+        addModule(new Fly());
     }
 
     public void addModule(Module module) {

@@ -18,8 +18,6 @@ public class BunnyHop extends Module {
         return false;
     }
 
-    //TODO: actual good bhop
-
     @SubscribeEvent
     public void onTick(TickEvent.ClientTickEvent event) {
         if (isToJump() && Minecraft.getMinecraft().thePlayer.moveForward != 0 && (Minecraft.getMinecraft().thePlayer.posY % 1 == 0)) Minecraft.getMinecraft().thePlayer.jump();

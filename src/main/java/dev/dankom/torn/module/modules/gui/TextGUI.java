@@ -1,4 +1,4 @@
-package dev.dankom.torn.module.modules.render;
+package dev.dankom.torn.module.modules.gui;
 
 import dev.dankom.torn.Torn;
 import dev.dankom.torn.gui.clickgui.ClickGui;
@@ -12,7 +12,7 @@ import java.awt.*;
 
 public class TextGUI extends Module {
     public TextGUI() {
-        super("TextGUI", "Shows your enabled modules", Category.RENDER, -1, new Color(255, 0, 0), true, false);
+        super("TextGUI", "Shows your enabled modules", Category.GUI, -1, new Color(255, 0, 0), true, false);
         addSetting(new Setting("Use Module Color", this, false));
     }
 

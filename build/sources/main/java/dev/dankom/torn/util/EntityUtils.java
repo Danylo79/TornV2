@@ -23,48 +23,52 @@ public class EntityUtils {
     private Invoker invoker = Torn.getWrapper().getInvoker();
 
     public Entity getClosestEntity(Entity from, boolean players, boolean mobs, boolean animals, boolean invisibles, boolean propBlocks) {
-        Entity prevEntity = null;
-        for (Object o : Torn.getWrapper().getWorld().loadedEntityList) {
-            if (o instanceof EntityLivingBase) {
-                EntityLivingBase entity = (EntityLivingBase) o;
+        try {
+            Entity prevEntity = null;
+            for (Object o : Torn.getWrapper().getWorld().loadedEntityList) {
+                if (o instanceof EntityLivingBase) {
+                    EntityLivingBase entity = (EntityLivingBase) o;
 
-                if (entity == null || isThePlayer(entity)) continue;
+                    if (entity == null || isThePlayer(entity)) continue;
 
-                if (prevEntity == null) {
-                    prevEntity = entity;
-                }
-
-                if (entity instanceof EntityOtherPlayerMP && players) {
-                    if (!invisibles && invoker.isInvisible(entity)) continue;
-                    if (isCloser(entity, prevEntity, 2)) {
+                    if (prevEntity == null) {
                         prevEntity = entity;
                     }
-                }
 
-                if (entity instanceof EntityMob && !(entity instanceof EntityHorse || entity instanceof EntityAnimal) && mobs) {
-                    if (isCloser(entity, prevEntity, 1)) {
-                        prevEntity = entity;
+                    if (entity instanceof EntityOtherPlayerMP && players) {
+                        if (!invisibles && invoker.isInvisible(entity)) continue;
+                        if (isCloser(entity, prevEntity, 2)) {
+                            prevEntity = entity;
+                        }
+                    }
+
+                    if (entity instanceof EntityMob && !(entity instanceof EntityHorse || entity instanceof EntityAnimal) && mobs) {
+                        if (isCloser(entity, prevEntity, 1)) {
+                            prevEntity = entity;
+                        }
+                    }
+
+                    if ((entity instanceof EntityAnimal || entity instanceof EntityHorse) && animals) {
+                        if (isCloser(entity, prevEntity, 0)) {
+                            prevEntity = entity;
+                        }
                     }
                 }
-
-                if ((entity instanceof EntityAnimal || entity instanceof EntityHorse) && animals) {
-                    if (isCloser(entity, prevEntity, 0)) {
-                        prevEntity = entity;
+                if (o instanceof EntityFallingBlock && propBlocks) {
+                    System.out.println(prevEntity + " because " + propBlocks);
+                    EntityFallingBlock entity = (EntityFallingBlock) o;
+                    if (entity != null) {
+                        if (isCloser(entity, prevEntity, 0)) {
+                            prevEntity = entity;
+                        }
                     }
                 }
             }
-            if (o instanceof EntityFallingBlock && propBlocks) {
-                System.out.println(prevEntity + " because " + propBlocks);
-                EntityFallingBlock entity = (EntityFallingBlock) o;
-                if (entity != null) {
-                    if (isCloser(entity, prevEntity, 0)) {
-                        prevEntity = entity;
-                    }
-                }
-            }
+
+            return prevEntity;
+        } catch (Exception e) {
+            return null;
         }
-
-        return prevEntity;
     }
 
     public boolean isCloser(Entity now, Entity first, float error) {

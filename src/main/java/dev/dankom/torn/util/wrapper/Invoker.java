@@ -516,4 +516,12 @@ public class Invoker {
     public void setJump(boolean b) {
         setKeybind(wrapper.getMinecraft().gameSettings.keyBindJump.getKeyCode(), b);
     }
+
+    public void moveRight(double amt) {
+
+    }
+
+    public void moveLeft(double amt) {
+
+    }
 }

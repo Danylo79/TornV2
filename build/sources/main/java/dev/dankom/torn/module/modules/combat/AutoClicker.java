@@ -29,7 +29,6 @@ public class AutoClicker extends Module {
         addSetting(new Setting("Mouse Button", this, "Left", args));
         addSetting(new Setting("Min CPS", this, 8, 8, 50, true));
         addSetting(new Setting("Max CPS", this, 12, 12 , 50, true));
-        addSetting(new Setting("Fake Jitter", this, false));
     }
 
     @Override

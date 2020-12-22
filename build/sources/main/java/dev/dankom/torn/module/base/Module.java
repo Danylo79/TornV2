@@ -57,11 +57,9 @@ public class Module {
     //Events
     public void onEnable() {
         MinecraftForge.EVENT_BUS.register(this);
-        NotificationManager.show(new Notification(NotificationType.INFO, "Module Manager", "Activated " + getName() + " module!", 100));
     }
     public void onDisable() {
         MinecraftForge.EVENT_BUS.unregister(this);
-        NotificationManager.show(new Notification(NotificationType.INFO, "Module Manager", "Deactivated " + getName() + " module!", 100));
     }
     public void onToggle() {}
     public void onTick() {}
@@ -168,6 +166,14 @@ public class Module {
     public void tick(TickEvent.PlayerTickEvent e) {
         if (!isInitialized()) { return; }
         onTick();
+    }
+
+    public void setHide(boolean hide) {
+        showInEnabledMods = hide;
+    }
+
+    public boolean isHidden() {
+        return showInEnabledMods;
     }
 
     @SubscribeEvent
