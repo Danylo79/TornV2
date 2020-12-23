@@ -1,6 +1,8 @@
 package dev.dankom.torn.file;
 
 import dev.dankom.torn.Torn;
+import dev.dankom.torn.friend.Friend;
+import dev.dankom.torn.friend.FriendManager;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.module.base.Module;
 import net.minecraft.client.Minecraft;
@@ -47,6 +49,10 @@ public class FileManager {
                 } else if (s.isSlider()) {
                     toSave.add("SET:" + s.getName() + ":" + s.getParentMod().getName() + ":" + s.getValDouble());
                 }
+            }
+
+            for (Friend f : FriendManager.getFriendList()) {
+                toSave.add("FRIEND:" + f.getUsername());
             }
 
             try {
@@ -100,6 +106,9 @@ public class FileManager {
                         }
                     }
                 }
+            }
+            if (s.toLowerCase().startsWith("friend:")) {
+                FriendManager.addFriend(args[1]);
             }
         }
     }

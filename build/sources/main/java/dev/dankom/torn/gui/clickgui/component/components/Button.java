@@ -14,6 +14,7 @@ import dev.dankom.torn.util.StringUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.ScaledResolution;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
@@ -89,7 +90,7 @@ public class Button extends Component {
 			}
 		}
 		if (isHovered) {
-			renderTooltip(parent.getX() + offset, parent.getY() + offset);
+			renderTooltip();
 		}
 	}
 	
@@ -146,9 +147,13 @@ public class Button extends Component {
 		return false;
 	}
 
-	public void renderTooltip(int x, int y) {
-//		FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
-//		GuiUtil.drawHollowRect(x, y, fr.getStringWidth(mod.getDescription()) + 2, fr.FONT_HEIGHT + 2, ClickGui.getColor());
-//		fr.drawString(mod.getDescription(), x, y, ClickGui.getColor());
+	public void renderTooltip() {
+		if (!Torn.getSettingsManager().getSetting("ClickGUI", "Show Tooltips").getValBoolean()) return;
+		GL11.glPushMatrix();
+		GL11.glScaled(0.5, 0.5, 0.5);
+		FontRenderer fr = Minecraft.getMinecraft().fontRendererObj;
+		ScaledResolution sr = new ScaledResolution(Minecraft.getMinecraft());
+		fr.drawString(mod.getDescription(), 2, (sr.getScaledHeight() - fr.FONT_HEIGHT) + 250, ClickGui.getColor());
+		GL11.glPopMatrix();
 	}
 }

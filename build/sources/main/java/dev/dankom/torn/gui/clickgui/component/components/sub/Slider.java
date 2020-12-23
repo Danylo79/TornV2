@@ -3,10 +3,13 @@ package dev.dankom.torn.gui.clickgui.component.components.sub;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import dev.dankom.torn.Torn;
 import dev.dankom.torn.gui.clickgui.component.Component;
 import dev.dankom.torn.gui.clickgui.component.components.Button;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.theme.Theme;
+import dev.dankom.torn.util.wrapper.Wrapper;
+import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
@@ -78,12 +81,19 @@ public class Slider extends Component {
 	}
 	
 	private static double roundToPlace(double value, int places) {
-        if (places < 0) {
-            throw new IllegalArgumentException();
-        }
-        BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+		if (Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
+			if (places < 0) {
+				throw new IllegalArgumentException();
+			}
+			return (int) value;
+		} else {
+			if (places < 0) {
+				throw new IllegalArgumentException();
+			}
+			BigDecimal bd = new BigDecimal(value);
+			bd = bd.setScale(places, RoundingMode.HALF_UP);
+			return bd.doubleValue();
+		}
     }
 	
 	@Override

@@ -2,11 +2,11 @@ package dev.dankom.torn.module;
 
 import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
-import dev.dankom.torn.module.modules.combat.AimAssist;
-import dev.dankom.torn.module.modules.combat.AutoArmor;
-import dev.dankom.torn.module.modules.combat.AutoClicker;
-import dev.dankom.torn.module.modules.combat.Velocity;
+import dev.dankom.torn.module.modules.combat.*;
 import dev.dankom.torn.module.modules.gui.*;
+import dev.dankom.torn.module.modules.misc.AutoEat;
+import dev.dankom.torn.module.modules.misc.Glide;
+import dev.dankom.torn.module.modules.misc.Twerk;
 import dev.dankom.torn.module.modules.movement.*;
 import dev.dankom.torn.module.modules.render.Fullbright;
 
@@ -32,6 +32,10 @@ public class ModuleManager {
         addModule(new Fullbright());
         addModule(new Fly());
         addModule(new AutoArmor());
+        addModule(new AutoEat());
+        addModule(new Twerk());
+        addModule(new Glide());
+        addModule(new AutoSoup());
     }
 
     public void addModule(Module module) {

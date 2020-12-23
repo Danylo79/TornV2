@@ -31,7 +31,7 @@ public class HUD extends Module {
 
     @Override
     public void onRender(RenderGameOverlayEvent e) {
-        if (!isToggled() || !e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) return;
+        if (!isToggled() || e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) return;
 
         FontRenderer fontRenderer = mc.fontRendererObj;
         ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft());
@@ -44,13 +44,13 @@ public class HUD extends Module {
         }
         if (bps) {
             double currSpeed = Math.sqrt(mc.thePlayer.motionX * mc.thePlayer.motionX + mc.thePlayer.motionZ * mc.thePlayer.motionZ);
-            fontRenderer.drawString(String.format("BPS: %.2f", currSpeed), (fps ? 45 : 4), res.getScaledHeight() - fontRenderer.FONT_HEIGHT - 2, ClickGui.getColor(), true);
+            fontRenderer.drawString(String.format("BPS: %.2f", currSpeed), (fps ? (Minecraft.getDebugFPS() > 100 ? 50 : 45) : 4), res.getScaledHeight() - fontRenderer.FONT_HEIGHT - 2, ClickGui.getColor(), true);
         }
         if (time) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(new Date());
             String am_pm = (cal.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM");
-            String currTime = cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + " " + am_pm;
+            String currTime = cal.getTime().getHours() + ":" + cal.getTime().getMinutes() + " " + am_pm;
             fontRenderer.drawString(currTime, res.getScaledWidth() - fontRenderer.getStringWidth(currTime) - 4, res.getScaledHeight() - fontRenderer.FONT_HEIGHT - 2, ClickGui.getColor(), true);
         }
     }

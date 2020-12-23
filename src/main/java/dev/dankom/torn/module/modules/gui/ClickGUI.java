@@ -26,6 +26,7 @@ public class ClickGUI extends Module {
         options.add("Large");
         options.add("Small");
         addSetting(new Setting("Watermark Type", this, "Large", options));
+        addSetting(new Setting("Show Tooltips", this, true));
     }
 
     @Override

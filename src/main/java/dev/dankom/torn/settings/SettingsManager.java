@@ -1,5 +1,6 @@
 package dev.dankom.torn.settings;
 
+import dev.dankom.torn.Torn;
 import dev.dankom.torn.module.base.Module;
 
 import java.util.ArrayList;
@@ -55,6 +56,16 @@ public class SettingsManager {
 	public Setting getSetting(Module module, String name){
 		for(Setting set : getSettings()){
 			if(set.getName().equalsIgnoreCase(name) && set.getParentMod() == module){
+				return set;
+			}
+		}
+		System.err.println("[Torn] Error Setting NOT found: '" + name +"'!");
+		return null;
+	}
+
+	public Setting getSetting(String moduleName, String name){
+		for(Setting set : getSettings()){
+			if(set.getName().equalsIgnoreCase(name) && set.getParentMod() == Torn.getModuleManager().getModule(moduleName)){
 				return set;
 			}
 		}

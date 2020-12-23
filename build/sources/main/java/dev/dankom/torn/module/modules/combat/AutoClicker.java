@@ -4,6 +4,8 @@ import dev.dankom.torn.event.events.UpdateEvent;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
+import dev.dankom.torn.util.ColorUtil;
+import dev.dankom.torn.util.StringUtil;
 import net.minecraft.client.settings.KeyBinding;
 import org.lwjgl.input.Mouse;
 

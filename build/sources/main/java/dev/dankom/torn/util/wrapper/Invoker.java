@@ -230,7 +230,14 @@ public class Invoker {
     }
 
     public void sendUseItem(ItemStack itemStack, EntityPlayer player){
-        wrapper.getPlayerController().sendUseItem(player, wrapper.getWorld(), itemStack);
+        try {
+            if (wrapper != null && itemStack != null && player != null && wrapper.getWorld() != null) {
+                return;
+            }
+            wrapper.getPlayerController().sendUseItem(player, wrapper.getWorld(), itemStack);
+        } catch (NullPointerException e) {
+            return;
+        }
     }
 
     public Item getItemById(int id){
@@ -238,7 +245,7 @@ public class Invoker {
     }
 
     public void dropItemStack(int slot){
-        for(int i=0; i<wrapper.getPlayer().inventory.getStackInSlot(slot).stackSize; i++){
+        for(int i=0; i< wrapper.getPlayer().inventory.getStackInSlot(slot).stackSize; i++){
             wrapper.getPlayer().dropOneItem(false);
         }
     }
@@ -515,6 +522,10 @@ public class Invoker {
 
     public void setJump(boolean b) {
         setKeybind(wrapper.getMinecraft().gameSettings.keyBindJump.getKeyCode(), b);
+    }
+
+    public void setUseItemKeyPressed(boolean pressed){
+        setKeybind(wrapper.getGameSettings().keyBindUseItem.getKeyCode(), true);
     }
 
     public void moveRight(double amt) {
