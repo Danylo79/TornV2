@@ -59,19 +59,19 @@ public class Slider extends Component {
 		this.y = parent.parent.getY() + offset;
 		this.x = parent.parent.getX();
 		
-		double diff = Math.min(Theme.getInstance().getWidth(), Math.max(0, mouseX - this.x));
+		double diff = Math.min(Theme.getWidth(), Math.max(0, mouseX - this.x));
 
 		double min = set.getMin();
 		double max = set.getMax();
 		
-		renderWidth = (Theme.getInstance().getWidth()) * (set.getValDouble() - min) / (max - min);
+		renderWidth = (Theme.getWidth()) * (set.getValDouble() - min) / (max - min);
 		
 		if (dragging) {
 			if (diff == 0) {
 				set.setValDouble(set.getMin());
 			}
 			else {
-				double newValue = roundToPlace(((diff / Theme.getInstance().getWidth()) * (max - min) + min), 2);
+				double newValue = roundToPlace(((diff / Theme.getWidth()) * (max - min) + min), 2);
 				set.setValDouble(newValue);
 			}
 		}

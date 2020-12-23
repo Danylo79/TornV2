@@ -3,6 +3,8 @@ package dev.dankom.torn.module.modules.movement;
 import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
 import dev.dankom.torn.settings.Setting;
+import dev.dankom.torn.util.ColorUtil;
+import dev.dankom.torn.util.StringUtil;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import org.lwjgl.input.Keyboard;
 
@@ -20,7 +22,7 @@ public class Fly extends Module {
 
     @Override
     public void onTick() {
-        setEnabledModName("Fly (" + getSetting("Fly Mode").getValString() + ")");
+        setEnabledModName(ColorUtil.translate("Fly " + StringUtil.wrapWithSquareBracket(getSetting("Fly Mode").getValString())));
         String mode = getSetting("Fly Mode").getValString();
 
         if(mode.equalsIgnoreCase("Hypixel")) {

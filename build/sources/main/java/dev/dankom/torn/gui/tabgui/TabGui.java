@@ -96,7 +96,7 @@ public class TabGui<T> {
 
         for (Tab<T> tab : tabs) {
             if (selectedTab == i) {
-                drawRect(GL_QUADS, 0, offset - 2, width, offset + font.FONT_HEIGHT + OFFSET - 2, Theme.getInstance().getColorInt());
+                drawRect(GL_QUADS, 0, offset - 2, width, offset + font.FONT_HEIGHT + OFFSET - 2, Theme.getColorInt());
 
                 if (selectedSubTab != -1) {
                     tab.renderSubTabs(width, offset - 2, selectedSubTab);

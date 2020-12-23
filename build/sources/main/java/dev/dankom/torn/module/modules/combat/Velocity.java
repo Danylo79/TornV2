@@ -4,6 +4,8 @@ import dev.dankom.torn.Torn;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
+import dev.dankom.torn.util.ColorUtil;
+import dev.dankom.torn.util.StringUtil;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -27,6 +29,6 @@ public class Velocity extends Module {
             mc.thePlayer.motionY = vertical / 100;
             mc.thePlayer.motionZ = horizontal / 100;
         }
-        setEnabledModName("Velocity (X:" + horizontal + ", Y:" + vertical + ")");
+        setEnabledModName(ColorUtil.translate("Velocity " + StringUtil.wrapWithSquareBracket("X:" + horizontal + ", Y:" + vertical)));
     }
 }

@@ -7,13 +7,12 @@ import dev.dankom.torn.util.MathUtil;
 import java.awt.*;
 
 public class Theme {
-    private static Theme instance;
 
-    public int getWidth() {
+    public static int getWidth() {
         return 65;
     }
 
-    public int getColorInt() {
+    public static int getColorInt() {
         if (!Torn.getSettingsManager().getSetting(Torn.getModuleManager().getModule("ClickGUI"), "Chroma").getValBoolean()) {
             float r = (float) MathUtil.clamp(0.0, 254.0, Torn.getSettingsManager().getSetting(Torn.getModuleManager().getModule("ClickGUI"), "R").getValDouble());
             float g = (float) MathUtil.clamp(0.0, 254.0, Torn.getSettingsManager().getSetting(Torn.getModuleManager().getModule("ClickGUI"), "G").getValDouble());
@@ -30,14 +29,7 @@ public class Theme {
         }
     }
 
-    public Color getColor() {
+    public static Color getColor() {
         return new Color(getColorInt());
-    }
-
-    public static Theme getInstance() {
-        if (instance == null) {
-            instance = new Theme();
-        }
-        return instance;
     }
 }

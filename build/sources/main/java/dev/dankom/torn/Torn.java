@@ -118,13 +118,13 @@ public class Torn
         String type = getSettingsManager().getSetting(getModuleManager().getModule("ClickGUI"), "Watermark Type").getValString();
         if (type.equalsIgnoreCase("Large")) {
             GL11.glScaled(2.0, 2.0, 2.0);
-            int i = fontRenderer().drawString(Torn.CLIENT_NAME, 2, 2, Theme.getInstance().getColorInt(), true);
+            int i = fontRenderer().drawString(Torn.CLIENT_NAME, 2, 2, Theme.getColorInt(), true);
             GL11.glScaled(0.5, 0.5, 0.5);
 
-            fontRenderer().drawString(Torn.CLIENT_VERSION, i * 2, fontRenderer().FONT_HEIGHT * 2 - 7, Theme.getInstance().getColorInt(), true);
-            fontRenderer().drawString("by " + Torn.CLIENT_AUTHOR, 8, fontRenderer().FONT_HEIGHT * 2 + 2, Theme.getInstance().getColorInt(), true);
+            fontRenderer().drawString(Torn.CLIENT_VERSION, i * 2, fontRenderer().FONT_HEIGHT * 2 - 7, Theme.getColorInt(), true);
+            fontRenderer().drawString("by " + Torn.CLIENT_AUTHOR, 8, fontRenderer().FONT_HEIGHT * 2 + 2, Theme.getColorInt(), true);
         } else if (type.equalsIgnoreCase("Small")) {
-            fontRenderer().drawString(Torn.CLIENT_NAME + "   " + Torn.CLIENT_VERSION, 2, 2, Theme.getInstance().getColorInt());
+            fontRenderer().drawString(Torn.CLIENT_NAME + " " + Torn.CLIENT_VERSION, 2, 2, Theme.getColorInt());
         }
     }
 
