@@ -18,7 +18,7 @@ import net.minecraft.util.MathHelper;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class EntityUtils {
+public class EntityUtil {
 
     private Invoker invoker = Torn.getWrapper().getInvoker();
 

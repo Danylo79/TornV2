@@ -4,8 +4,7 @@ import dev.dankom.torn.Torn;
 import dev.dankom.torn.settings.Setting;
 import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
-import dev.dankom.torn.util.EntityUtils;
-import dev.dankom.torn.util.wrapper.Wrapper;
+import dev.dankom.torn.util.EntityUtil;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -15,7 +14,7 @@ import java.awt.*;
 public class AimAssist extends Module {
 
     private Entity target;
-    private EntityUtils entityUtils = new EntityUtils();
+    private EntityUtil entityUtils = new EntityUtil();
 
     public AimAssist() {
         super("Aim Assist", "Aims at the nearest entity", Category.COMBAT, -1, new Color(119, 0, 255), true, true);

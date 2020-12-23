@@ -67,7 +67,7 @@ public class Tab<T> {
 
         for (SubTab<T> tab : subTabs) {
             if (selectedSubTab == i) {
-                drawRect(GL_QUADS, 0, offset - 2, width, offset + font.FONT_HEIGHT + OFFSET - 1, Theme.getInstance().getColorInt());
+                drawRect(GL_QUADS, 0, offset - 2, width, offset + font.FONT_HEIGHT + OFFSET - 1, Theme.getColorInt());
             }
 
             font.drawString(tab.getText(), 2, offset, FOREGROUND.getRGB());

@@ -23,7 +23,7 @@ public class HUD extends Module {
     private List<Integer> fps = new ArrayList<>();
 
     public HUD() {
-        super("HUD", "Shows the Heads Up Display", Category.GUI, -1, new Color(0, 255, 15), true, true);
+        super("HUD", "Shows the Heads Up Display", Category.GUI, -1, new Color(0, 255, 15), true, false);
         addSetting(new Setting("FPS", this, false));
         addSetting(new Setting("BPS", this, false));
         addSetting(new Setting("Time", this, false));
@@ -36,12 +36,6 @@ public class HUD extends Module {
         FontRenderer fontRenderer = mc.fontRendererObj;
         ScaledResolution res = new ScaledResolution(Minecraft.getMinecraft());
 
-        GL11.glScaled(2.0, 2.0, 2.0);
-        int i = fontRenderer.drawString(Torn.CLIENT_NAME, 2, 2, Theme.getInstance().getColorInt(), true);
-        GL11.glScaled(0.5, 0.5, 0.5);
-
-        fontRenderer.drawString(Torn.CLIENT_VERSION, i * 2, fontRenderer.FONT_HEIGHT * 2 - 7, Theme.getInstance().getColorInt(), true);
-        fontRenderer.drawString("by " + Torn.CLIENT_AUTHOR, 8, fontRenderer.FONT_HEIGHT * 2 + 2, Theme.getInstance().getColorInt(), true);
         boolean fps = getSetting("FPS").getValBoolean();
         boolean bps = getSetting("BPS").getValBoolean();
         boolean time = getSetting("Time").getValBoolean();

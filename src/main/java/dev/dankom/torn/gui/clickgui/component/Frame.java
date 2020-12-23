@@ -31,7 +31,7 @@ public class Frame {
 	public Frame(Category cat) {
 		this.components = new ArrayList<Component>();
 		this.category = cat;
-		this.width = Theme.getInstance().getWidth();
+		this.width = Theme.getWidth();
 		this.x = 5;
 		this.y = 5;
 		this.barHeight = 13;

@@ -3,6 +3,7 @@ package dev.dankom.torn.module;
 import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
 import dev.dankom.torn.module.modules.combat.AimAssist;
+import dev.dankom.torn.module.modules.combat.AutoArmor;
 import dev.dankom.torn.module.modules.combat.AutoClicker;
 import dev.dankom.torn.module.modules.combat.Velocity;
 import dev.dankom.torn.module.modules.gui.*;
@@ -27,9 +28,10 @@ public class ModuleManager {
         addModule(new AutoClicker());
         addModule(new HUD());
 //        addModule(new Strafe());
-        addModule(new Step());
+//        addModule(new Step());
         addModule(new Fullbright());
         addModule(new Fly());
+        addModule(new AutoArmor());
     }
 
     public void addModule(Module module) {

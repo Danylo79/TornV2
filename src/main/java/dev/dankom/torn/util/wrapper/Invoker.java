@@ -433,7 +433,7 @@ public class Invoker {
         return wrapper.getPlayer().isSneaking();
     }
 
-    public void setStepHeight(float value){
+    public void setStepHeight(float value) {
         wrapper.getPlayer().stepHeight = value;
     }
 

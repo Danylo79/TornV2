@@ -21,7 +21,7 @@ public class TextGUI extends Module {
         if (!isToggled()) {
             return;
         }
-        if (mc.currentScreen == null && e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) {
+        if (mc.currentScreen == null && !e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) {
             ScaledResolution sr = new ScaledResolution(mc);
             int y = 2;
             for (Module m : Torn.getModuleManager().getEnabledModules()) {

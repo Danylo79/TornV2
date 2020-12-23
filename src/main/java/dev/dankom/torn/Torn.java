@@ -13,7 +13,12 @@ import dev.dankom.torn.module.base.Category;
 import dev.dankom.torn.module.base.Module;
 import dev.dankom.torn.settings.SettingsManager;
 import dev.dankom.torn.listeners.ClickListener;
+import dev.dankom.torn.theme.Theme;
+import dev.dankom.torn.util.StringUtil;
 import dev.dankom.torn.util.wrapper.Wrapper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -21,6 +26,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLModDisabledEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -50,6 +56,7 @@ public class Torn
         getFileManager().load();
 
         MinecraftForge.EVENT_BUS.register(new ClickListener());
+        MinecraftForge.EVENT_BUS.register(this);
 
         HashMap<Category, List<Module>> moduleCategoryMap = new HashMap<>();
 
@@ -102,5 +109,26 @@ public class Torn
 
     public static void save() {
         getFileManager().save();
+    }
+
+    @SubscribeEvent
+    public void onRender(RenderGameOverlayEvent e) {
+        if (!e.type.equals(RenderGameOverlayEvent.ElementType.CROSSHAIRS)) return;
+
+        String type = getSettingsManager().getSetting(getModuleManager().getModule("ClickGUI"), "Watermark Type").getValString();
+        if (type.equalsIgnoreCase("Large")) {
+            GL11.glScaled(2.0, 2.0, 2.0);
+            int i = fontRenderer().drawString(Torn.CLIENT_NAME, 2, 2, Theme.getColorInt(), true);
+            GL11.glScaled(0.5, 0.5, 0.5);
+
+            fontRenderer().drawString(Torn.CLIENT_VERSION, i * 2, fontRenderer().FONT_HEIGHT * 2 - 7, Theme.getColorInt(), true);
+            fontRenderer().drawString("by " + Torn.CLIENT_AUTHOR, 8, fontRenderer().FONT_HEIGHT * 2 + 2, Theme.getColorInt(), true);
+        } else if (type.equalsIgnoreCase("Small")) {
+            fontRenderer().drawString(Torn.CLIENT_NAME + " " + Torn.CLIENT_VERSION, 2, 2, Theme.getColorInt());
+        }
+    }
+
+    public FontRenderer fontRenderer() {
+        return Minecraft.getMinecraft().fontRendererObj;
     }
 }

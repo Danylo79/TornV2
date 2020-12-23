@@ -76,7 +76,7 @@ public class ModeButton extends Component {
 	}
 	
 	public boolean isMouseOnButton(int x, int y) {
-		if(x > this.x && x < this.x + Theme.getInstance().getWidth() && y > this.y && y < this.y + 12) {
+		if(x > this.x && x < this.x + Theme.getWidth() && y > this.y && y < this.y + 12) {
 			return true;
 		}
 		return false;
